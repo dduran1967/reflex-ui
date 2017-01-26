@@ -150,8 +150,8 @@ export const messageList = [
     label:       'Website Registration Action',
     description: 'Someone has registered to your website, blog, page, etc...',
     pseudocode:  '{agent} has {type} with {object}',
-    producedBy:  ['smarteragent'],
-    consumedBy:  ['red', 'roqlogic'],
+    producedBy:  ['smarteragent', 'red'],
+    consumedBy:  ['roqlogic', 'smarteragent'],
     schema:      {
       "$schema":   "http://json-schema.org/draft-04/schema#",
       id:          'http://schema.org/RegisterAction',
@@ -211,14 +211,15 @@ export const messageList = [
   {
     id:          'RealEstateListingLikeAction',
     name:        'like:real-estate-listing',
-    description: 'The subject has indicated interest in a real estate listing'
-
+    description: 'The subject has indicated interest in a real estate listing',
+    producedBy:  ['smarteragent'],
   },
 
   {
     "id":          "RealEstateListingSaveAction",
     "name":        "save:real-estate-listing",
     "description": "The subject saved a real estate listing.",
+    producedBy:  ['smarteragent','red'],
   }
 ];
 
