@@ -1,9 +1,7 @@
 // see https://material.io/icons/ for available icons
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import {color, icon} from '../style/theme';
-
-const COLORS = Object.keys(color);
+import STYLES from '../style/config';
 
 class Icon extends Component {
 
@@ -20,12 +18,13 @@ class Icon extends Component {
   };
 
   render() {
+
     let classes = ['material-icons'];
-    let style = Object.assign({}, icon);
+    let style = Object.assign({}, STYLES.Icon);
     let {name, fontSize, color} = this.props;
 
     if (!!color) {
-      if (COLORS.includes(color)) {
+      if (Object.hasOwnProperty(STYLES.colors, color)) {
         classes.push('text-' + color);
       } else {
         style.color = color;

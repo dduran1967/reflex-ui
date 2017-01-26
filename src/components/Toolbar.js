@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import theme from '../style/theme';
+import theme from '../style/config';
 
 class Toolbar extends React.Component {
   render() {

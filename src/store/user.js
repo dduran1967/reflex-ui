@@ -10,6 +10,7 @@ class User {
   addMessageClient(id) {
     this.messageClient.push(id);
   }
+
 }
 
 const user = window.user = new User;

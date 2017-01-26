@@ -1,3 +1,5 @@
+// STYLES
+
 export const color = {
   white:        '#fff',
   black:        '#000',
@@ -15,7 +17,6 @@ export const color = {
   grayLighter:  '#eceeef',
   grayLightest: '#f7f7f9'
 };
-
 export const brand = {
   id:      "CT301",
   name:    'New England Properties',
@@ -27,6 +28,8 @@ export const brand = {
   danger:  '#d9534f',
   inverse: '#292b2c',
 };
+
+// CLIENTS
 
 export const clientList = [
   {
@@ -134,7 +137,6 @@ export const clientList = [
     }
   },
 ];
-
 export const client = clientList[0];
 
 // MESSAGES
@@ -227,10 +229,10 @@ export const user = {
 };
 
 export default {
-  color,
   brand,
-  clientList,
+  color,
   client,
+  clientList,
   messageList,
   user
 }
