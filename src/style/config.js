@@ -18,7 +18,7 @@ const baseColors = {
   grayLightest: '#f7f7f9',
 }
 
-const colors = {
+export const colors = {
   ...baseColors,
   primary:   baseColors.purple,
   secondary: baseColors.midgray,
@@ -26,7 +26,8 @@ const colors = {
   info:      baseColors.teal,
   success:   baseColors.green,
   warning:   baseColors.orange,
-  error:     baseColors.red
+  error:     baseColors.red,
+  danger:     baseColors.red
 }
 
 const inverted = colors.white
@@ -36,18 +37,31 @@ const scale = [
   8,
   16,
   32,
+  48,
   64
 ]
 
 const fontSizes = [
-  48,
-  32,
-  24,
-  20,
+  109,
+  68,
+  42,
+  26,
   16,
-  14,
-  12
+  12,
+  9
 ]
+
+const fontSizeBase = 16;
+export const fontSize = {
+  normal: 1,
+  medium: 1,
+  large:  1.618,
+  larger: 2.618,
+  xl:     4.236,
+  xxl:    6.854,
+  small:  0.75,
+  xs:     0.56
+}
 
 const zIndex = [
   0,
@@ -57,9 +71,23 @@ const zIndex = [
   16
 ]
 
+
 const bold = 600
-const borderRadius = 2
+const borderRadius = 4
 const borderColor = 'rgba(0, 0, 0, .25)'
+
+// Component Defaults
+
+const Heading = {
+  "marginTop":    "0",
+  "marginBottom": ".5rem",
+  "fontWeight":   "inherit",
+  "lineHeight":   "1.1em"
+}
+
+const Input = {
+  lineHeight: '2'
+}
 
 const Icon = {
   display:             'inline-block',
@@ -78,22 +106,30 @@ const Icon = {
   textAlign:           'center',
   MozOsxFontSmoothing: 'grayscale',
   WebkitFontSmoothing: 'antialiased',
-}
+};
 
-const config = {
-  scale,
-  fontSizes,
+const Card = {
+  minWidth:      '280px',
+  position:      'relative',
+  display:       'inline-block',
+  flexDirection: 'column'
+};
+
+export default {
+  Card,
+  Icon,
+  Input,
+
   bold,
-  monospace,
-  zIndex,
-  colors,
-  inverted,
-  borderRadius,
   borderColor,
+  borderRadius,
+  colors,
+  fontSize,
+  fontSizes,
+  Heading,
+  monospace,
+  inverted,
+  scale,
   pureRender: true,
-  Icon
+  zIndex,
 }
-
-export default config;
-
-

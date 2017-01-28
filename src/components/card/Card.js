@@ -1,25 +1,35 @@
 import React from 'react';
-import Avatar from 'react-avatar';
+import styles from '../../style/config';
 import './card.css';
 
-export function Card({title, image, text, bgColor, cardStyle, subtitle, overlay}) {
+export function Card({
+  avatar,
+  backgroundColor,
+  children,
+  color,
+  footer,
+  subtitle,
+  text,
+  title,
+  ...props
+}) {
+  let cardStyle = {};
+  if(backgroundColor) {
+    cardStyle.backgroundColor = styles.colors[backgroundColor] || backgroundColor;
+  }
+  if(color) {
+    cardStyle.color = styles.colors[color] || color;
+  }
   return (
-    <div href="#" className={'card ' + bgColor} style={cardStyle}>
+    <div className={'card Card'} style={cardStyle}>
 
-      {image &&
+      {avatar &&
       <div className="card-block text-center">
-        <Avatar src={image}/>
-      </div>
-      }
-
-      {!image &&
-      <div className="card-block text-center">
-        <Avatar name={title}/>
+        {avatar}
       </div>
       }
 
       <div className="card-block">
-
         {title &&
         <h4 className="card-title">{title}</h4>
         }
@@ -31,15 +41,26 @@ export function Card({title, image, text, bgColor, cardStyle, subtitle, overlay}
         {text &&
         <p className="card-text">{text}</p>
         }
-
       </div>
 
+      {footer &&
       <div className="card-footer">
-        <small>somethinghere</small>
+        {footer}
       </div>
+      }
 
+      {children}
     </div>
   )
+}
+
+Card.propTypes = {
+  backgroundColor: React.PropTypes.string,
+  color:           React.PropTypes.string,
+  title:           React.PropTypes.string,
+  text:            React.PropTypes.string,
+  avatar:          React.PropTypes.node,
+  footer:          React.PropTypes.node,
 }
 
 export default Card

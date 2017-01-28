@@ -1,4 +1,5 @@
 import React from 'react';
+import {Heading, Block, Text} from './index';
 
 export const Hero = ({
   header,
@@ -9,24 +10,26 @@ export const Hero = ({
   styles = {}
 }) => {
   let logoStyles = {
-    width: '120',
+    width:        '120',
     marginBottom: '3em'
   };
   let heroStyles = {
-    textAlign: 'center'
+    textAlign:       'center',
+    backgroundColor: '#d3d3d7',
+    borderRadius:    '8px'
   };
   return (
-    <div className="jumbotron" style={{...heroStyles, ...styles.hero}}>
+    <Block mt={0} mb={3} px={2} py={4} style={{...heroStyles, ...styles.hero}}>
       {header}
       <img src={logo} alt="" style={logoStyles}/>
-      <h1 className="display-3" style={styles.title}>{title}</h1>
-      <p className="lead" style={styles.text}>{text}</p>
+      <Heading size={0}>{title}</Heading>
+      <p>{text}</p>
       {footer &&
-        <div className="footer mb-0 mt-5">
-          {footer}
-        </div>
+      <div className="footer mb-0 mt-5">
+        {footer}
+      </div>
       }
-    </div>
+    </Block>
   )
 };
 

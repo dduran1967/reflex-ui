@@ -1,15 +1,33 @@
 import React from 'react';
+import BaseStyles from './BaseStyles';
 import {storiesOf} from '@kadira/storybook';
 import {addWithInfo} from '@kadira/react-storybook-addon-info';
-import {ClientCardList, Splash, Hero, MessageList, Switch, Avatar, Flex, Box} from '../src/components';
+import {
+  Signup,
+  ClientCard,
+  CardList,
+  CardListItem,
+  Container,
+  Splash,
+  Hero,
+  MessageList,
+  Switch,
+  Avatar,
+  Flex,
+  Box
+} from '../src/components';
 import {PageHeader} from 'rebass';
 import state from './storydata';
 import '../src/style/index.css';
 import './stories.css';
+import './card-stories';
 window.state = state;
 
-const setup = storiesOf('1. first impressions', module);
+export {default as Typeography} from './type-stories'
+export {default as Color} from './color-stories'
 
+
+const setup = storiesOf('1. first impressions', module);
 setup.add('splash screen', () => (
   <div className="container-fluid">
     <Splash
@@ -22,24 +40,24 @@ setup.add('splash screen', () => (
 const connecting = storiesOf('2. connecting with reflex', module);
 
 connecting.add('finding connections', () => {
+  let clientCards =
+    state.clientList
+    .map(client => <CardListItem><ClientCard {...client}/></CardListItem>)
   return (
-    <div className="container-fluid">
+    <BaseStyles>
       <Hero
         title="reflexConnect"
         text="Select a vendor from the list below to start connecting your business tools."
         logo={"bhhs-logo-dark.png"}
       />
-
-      <div className="container">
-        <ClientCardList
-          items={state.clientList}
-        />
-      </div>
-
-    </div>
+      <Container>
+        <CardList>
+          {clientCards}
+        </CardList>
+      </Container>
+    </BaseStyles>
   )
 });
-
 connecting.add('starting a connection', () => {
   let client = state.client;
   let footer = (
@@ -62,7 +80,7 @@ connecting.add('starting a connection', () => {
 
         <section className="Section mb-5">
           <header className="mb-4">
-            <h3 className="d-inline mr-3">Integrations</h3>
+            <h3 className="d-inline mr-3">Connections</h3>
             <span className="text-muted">
               Enabling {client.name} provides automatic integration with these systems.
             </span>
@@ -93,7 +111,6 @@ connecting.add('starting a connection', () => {
     </div>
   )
 });
-
 connecting.add('view connections', () => {
   const message = state.messageList[0];
   return (
@@ -101,32 +118,19 @@ connecting.add('view connections', () => {
       <Box col={12}>
         <PageHeader heading={'Active Connections'} mb={1}/>
         <Box gutter={2}>
-          <MessageList items={state.messageList} showClients={true} />
+          <MessageList items={state.messageList} showClients={true}/>
         </Box>
       </Box>
     </Flex>
   )
 });
 
-// ELEMENTS
-//
-const elements = storiesOf('design elements', module);
 
-elements.addWithInfo('Hero', 'Marketing content prominently displayed at the top of a page.', () => {
+const signup = storiesOf('Signup', module);
+signup.add('start', () => {
   return (
-    <Hero
-      title="My Title"
-      text={"A brief introduction..."}
-    />
+    <BaseStyles>
+      <Signup style={{maxWidth: '300px'}}/>
+    </BaseStyles>
   )
 });
-
-elements.addWithInfo('Card', 'Basic visual list unit', () => {
-  let client = state.client;
-  return (
-    <Card
-      title={client.name}
-      text={client.description}
-    />
-  )
-})

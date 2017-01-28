@@ -1,5 +1,5 @@
 import React from 'react';
-import {Toolbar, Title, Switch} from './components';
+import config from './style/config';
 
 class App extends React.Component {
   static childContextTypes = {
@@ -8,23 +8,14 @@ class App extends React.Component {
 
   getChildContext () {
     return {
-      rebass: {
-        Switch: {
-          width: 500
-        }
-      }
+      rebass: {...config}
     }
   }
 
   render() {
     return (
-      <div id='App' className="App flexbox column justified">
-        <Toolbar>
-          <Title>reflex<strong>Connect</strong></Title>
-        </Toolbar>
-        <div id="main">
-          <Switch checked={true}/>
-        </div>
+      <div id='App' className="App">
+        {this.props.children}
       </div>
     )
   }
