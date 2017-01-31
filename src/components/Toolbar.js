@@ -1,30 +1,21 @@
-import React from 'react';
 import styled from 'styled-components';
+import {colors} from '../style/config';
 
-import theme from '../style/config';
-
-class Toolbar extends React.Component {
-  render() {
-    let {height, backgroundColor} = this.props;
-    let style = Object.assign({}, theme.toolbar, height, backgroundColor);
-    return (
-      <div className="toolbar" style={style}>
-          {this.props.children}
-      </div>
-    )
-  }
-
-  static propTypes = {
-    height:          React.PropTypes.string,
-    backgroundColor: React.PropTypes.string
-  };
-
-}
-
-export const ToolbarItem  = styled.div`
-  height: 100%;
-  margin-left: 16px;
-  margin-right: 16px;
+const Toolbar = styled.div`
+  display:         flex;
+  flex-direction:  row;
+  flex-wrap:       nowrap;
+  flex-shrink:     0;
+  align-items:     center;
+  align-self:      stretch;
+  height:          64px;
+  margin:          0;
+  padding:         0 0 0 56px;
+  color:           ${colors.navColor};
+  backgroundColor: ${colors.navBackgroundColor};
+`
+export const ToolbarItem = styled.div`
+  padding: .5em 1em;
 `;
 
 export default Toolbar

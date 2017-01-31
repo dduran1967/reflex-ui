@@ -1,5 +1,5 @@
 import React from 'react';
-import {Heading, Block, Text} from './index';
+import {Heading, Block} from './index';
 
 export const Hero = ({
   header,
@@ -10,7 +10,7 @@ export const Hero = ({
   styles = {}
 }) => {
   let logoStyles = {
-    width:        '120',
+    width:        '120px',
     marginBottom: '3em'
   };
   let heroStyles = {

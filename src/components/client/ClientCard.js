@@ -1,12 +1,12 @@
 import React from 'react';
 import {Card, Avatar, Icon} from '../index';
 
-export const ClientCard = ({client, ...props}) => {
+const ClientCard = ({client, ...props}) => {
   let {name, description, icon, image, producesMessage, consumesMessage} = client || {...props};
-  let avatar = <Avatar src={icon || image} name={name} />
-  let messages = [].concat(producesMessage,consumesMessage);
+  let avatar = <Avatar src={icon || image} name={name}/>
+  let messages = [].concat(producesMessage, consumesMessage);
   let footer = (
-    <div style={{lineHeight:'24px', verticalAlign:'middle'}}><Icon name="grade"/>{messages.length}</div>
+    <div style={{lineHeight: '24px', verticalAlign: 'middle'}}><Icon name="grade"/>{messages.length}</div>
   )
   return (
     <Card
@@ -18,7 +18,11 @@ export const ClientCard = ({client, ...props}) => {
     />
   )
 };
-
-ClientCard.propTypes = {...Card.propTypes}
+ClientCard.propTypes = {
+  backgroundColor: React.PropTypes.string,
+  color:           React.PropTypes.string,
+  client:          React.PropTypes.object,
+  footer:          React.PropTypes.node,
+}
 
 export default ClientCard;

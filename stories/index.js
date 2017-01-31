@@ -17,29 +17,25 @@ import {
   Box
 } from '../src/components';
 import {PageHeader} from 'rebass';
+
 import state from './storydata';
 import '../src/style/index.css';
 import './stories.css';
-import './card-stories';
+
 window.state = state;
 
-export {default as Typeography} from './type-stories'
-export {default as Color} from './color-stories'
+const views = storiesOf('reflex-ui views', module);
 
-
-const setup = storiesOf('1. first impressions', module);
-setup.add('splash screen', () => (
+views.add('splash screen', () => (
   <div className="container-fluid">
     <Splash
       title="Make a splash"
-      text={'First impressions matter.'}
+      text={'customize this screen.'}
     />
   </div>
 ));
 
-const connecting = storiesOf('2. connecting with reflex', module);
-
-connecting.add('finding connections', () => {
+views.add('finding connections', () => {
   let clientCards =
     state.clientList
     .map(client => <CardListItem><ClientCard {...client}/></CardListItem>)
@@ -51,6 +47,9 @@ connecting.add('finding connections', () => {
         logo={"bhhs-logo-dark.png"}
       />
       <Container>
+        <div className="alert alert-info">
+          note: this is a list of available relfex vendors.
+        </div>
         <CardList>
           {clientCards}
         </CardList>
@@ -58,7 +57,8 @@ connecting.add('finding connections', () => {
     </BaseStyles>
   )
 });
-connecting.add('starting a connection', () => {
+
+views.add('starting a connection', () => {
   let client = state.client;
   let footer = (
     <div>
@@ -100,8 +100,8 @@ connecting.add('starting a connection', () => {
 
         <section className="Section">
           <header className="mb-4">
-            <h3 className="d-inline mr-3">Integration Events</h3>
-            <span className="text-muted">{client.name} sends or receives these event messages.</span>
+            <h3 className="d-inline mr-3">Integrations</h3>
+            <span className="text-muted">{client.name} integrates the following events.</span>
           </header>
           <MessageList items={state.messageList}/>
         </section>
@@ -111,7 +111,7 @@ connecting.add('starting a connection', () => {
     </div>
   )
 });
-connecting.add('view connections', () => {
+views.add('view connections', () => {
   const message = state.messageList[0];
   return (
     <Flex px={2}>
@@ -126,8 +126,7 @@ connecting.add('view connections', () => {
 });
 
 
-const signup = storiesOf('Signup', module);
-signup.add('start', () => {
+views.add('signup', () => {
   return (
     <BaseStyles>
       <Signup style={{maxWidth: '300px'}}/>

@@ -77,12 +77,21 @@ const MESSAGES = [
 class MessageStore {
   constructor() {
     extendObservable(this, {
-      index: []
-    })
+      index: [],
+      items: []
+    });
+    this.add = this.add.bind(this);
+    this.list = this.list.bind(this);
+    this.load();
+  }
+
+  load() {
+    MESSAGES.forEach(this.add);
   }
 
   add(message) {
     this.index[message.id] = message;
+    this.items.push(message);
   }
 
   get(id) {
@@ -101,9 +110,9 @@ export class Message {
   }
 }
 
-const messages = new MessageStore;
+const messages = window.messages = new MessageStore();
 export default observable(messages);
 
 autorun(()=>{
-  console.log(arguments);
+  console.log(messages);
 });

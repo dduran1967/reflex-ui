@@ -19,7 +19,7 @@ const story = storiesOf('Color', module);
 story.add('basic colors', () => {
   return (
     <BaseStyle>
-      <Container>
+      <Container className="container">
         <Card
           backgroundColor={'success'}
           text="success"
@@ -58,4 +58,3 @@ story.add('basic colors', () => {
 });
 
 export default story;
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import {Avatar, Card, Container, ClientCard, CardList, CardListItem} from '../src/components';
+import {Avatar, Card, Container, ClientCard, CardList, CardListItem, Button} from '../src/components';
 import '../src/style/index.css';
 import './stories.css';
 import BaseStyle from './BaseStyles';
@@ -10,7 +10,7 @@ const avatar = (<Avatar size={50} src="smarter-agent-icon.png"/>);
 const heading = (<h3>Smarter Agent</h3>);
 const footer = (
   <div className="d-flex">
-    <button className="btn btn-primary d-flex">click me</button>
+    <Button primary>click me</Button>
   </div>
 );
 
@@ -19,13 +19,13 @@ const story = storiesOf('Cards', module);
 story.add('example', () => {
   return (
     <BaseStyle>
-      <Container>
+      <div className='container'>
         <ClientCard
           name="Smarter Agent"
           description="Making real estate smarter again..."
           footer={footer}
         />
-      </Container>
+      </div>
     </BaseStyle>
   )
 });
@@ -34,7 +34,7 @@ story.add('card list', () => {
   let cards = clientList.map(client => <CardListItem><ClientCard {...client}/></CardListItem>);
   return (
     <BaseStyle>
-      <Container>
+      <Container className="container">
         <CardList>
           {cards}
         </CardList>
@@ -42,6 +42,5 @@ story.add('card list', () => {
     </BaseStyle>
   )
 });
-
 
 export default story;

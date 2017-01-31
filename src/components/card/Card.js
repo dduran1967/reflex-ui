@@ -31,7 +31,7 @@ export function Card({
 
       <div className="card-block">
         {title &&
-        <h4 className="card-title">{title}</h4>
+        <h3 className="card-title">{title}</h3>
         }
 
         {subtitle &&
@@ -48,7 +48,6 @@ export function Card({
         {footer}
       </div>
       }
-
       {children}
     </div>
   )

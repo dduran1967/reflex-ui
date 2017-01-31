@@ -152,7 +152,7 @@ export const client = clientList[0];
 export const messageList = [
   {
     id:          'WebsiteRegisterAction',
-    name:        'register:website',
+    name:        'website:register-action',
     type:        'WebsiteRegisterAction',
     kind:        'schema:RegisterAction',
     label:       'Website Registration Action',
@@ -218,14 +218,14 @@ export const messageList = [
 
   {
     id:          'RealEstateListingLikeAction',
-    name:        'like:real-estate-listing',
+    name:        'real-estate-listing:like-action',
     description: 'The subject has indicated interest in a real estate listing',
     producedBy:  ['smarteragent'],
   },
 
   {
     "id":          "RealEstateListingSaveAction",
-    "name":        "save:real-estate-listing",
+    "name":        "real-estate-listing:save-action",
     "description": "The subject saved a real estate listing.",
     producedBy:  ['smarteragent','red'],
   }

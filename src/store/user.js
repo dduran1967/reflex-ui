@@ -1,8 +1,9 @@
 import {observable, autorun, extendObservable} from 'mobx';
 
-class User {
+class UserStore {
   constructor() {
     extendObservable(this, {
+      name: 'dave duran',
       messageClient: []
     })
   }
@@ -13,10 +14,9 @@ class User {
 
 }
 
-const user = window.user = new User;
+const user = window.user = new UserStore();
 export default observable(user);
 
 autorun(()=>{
-  console.log(arguments);
-  console.log(user.messageClient[0])
+  console.log(user);
 })

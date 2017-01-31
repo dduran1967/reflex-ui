@@ -21,32 +21,32 @@ story.add('Typeography', () => {
   })
   return (
     <BaseStyle>
-      <Container>
-        <Heading size="xl">Heading h1 {styles.fontSizes[1]}px</Heading>
+      <div className='container'>
+        <Heading size={1}>Heading h1 {styles.fontSizes[1]}px</Heading>
         <p>{body}</p>
 
-        <Heading size="large">Heading h2 {styles.fontSizes[2]}px</Heading>
+        <Heading size={2}>Heading h2 {styles.fontSizes[2]}px</Heading>
         <p>{body}</p>
 
-        <Heading size="normal">Heading h3 {styles.fontSizes[3]}px</Heading>
+        <Heading size={3}>Heading h3 {styles.fontSizes[3]}px</Heading>
         <p>{body}</p>
 
-        <Heading size="small">Heading h4 {styles.fontSizes[4]}px</Heading>
+        <Heading size={4}>Heading h4 {styles.fontSizes[4]}px</Heading>
         <p>{body}</p>
 
-        <Heading size="smaller">Heading h5 {styles.fontSizes[5]}px</Heading>
+        <Heading size={5}>Heading h5 {styles.fontSizes[5]}px</Heading>
         <p>{body}</p>
 
         <Heading size={6}>Heading h6 {styles.fontSizes[6]}px</Heading>
         <p>{body}</p>
-      </Container>
+      </div>
     </BaseStyle>
   )
 });
 
 story.add('Stylesheet',()=>(
   <BaseStyle>
-    <Container>
+    <div className="container">
       <h1>Heading h1</h1>
       <p>{data.bodyText[0]}</p>
 
@@ -65,7 +65,7 @@ story.add('Stylesheet',()=>(
       <h6>Heading h6</h6>
       <p>{data.bodyText[0]}</p>
 
-    </Container>
+    </div>
   </BaseStyle>
 ))
 

@@ -5,6 +5,8 @@ export const Container = styled.div`
   maxWidth: 960px;
   margin: 0 auto;
   overflow: hidden;
+  text-align: ${(props) => props.center ? 'center' : 'left'}
+  padding-top: ${(props) => props.pt ? '2em' : '0'}
 `
 
 export const Flexbox = styled.div`

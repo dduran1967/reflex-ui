@@ -14,25 +14,27 @@ const baseColors = {
   grayDark:     '#292b2c',
   gray:         '#464a4c',
   grayLight:    '#636c72',
-  grayLighter:  '#eceeef',
+  grayLighter:  '#ebedee',
   grayLightest: '#f7f7f9',
 }
 
 export const colors = {
   ...baseColors,
-  primary:   baseColors.purple,
-  secondary: baseColors.midgray,
-  default:   baseColors.black,
-  info:      baseColors.teal,
-  success:   baseColors.green,
-  warning:   baseColors.orange,
-  error:     baseColors.red,
-  danger:     baseColors.red
+  primary:            baseColors.blue,
+  secondary:          baseColors.midgray,
+  default:            baseColors.black,
+  info:               baseColors.teal,
+  success:            baseColors.green,
+  warning:            baseColors.orange,
+  error:              baseColors.red,
+  danger:             baseColors.red,
+  navBackgroundColor: baseColors.purple,
+  navColor:           baseColors.white
 }
 
 const inverted = colors.white
 
-const scale = [
+export const scale = [
   0,
   8,
   16,
@@ -47,11 +49,10 @@ const fontSizes = [
   42,
   26,
   16,
-  12,
-  9
+  14,
+  12
 ]
 
-const fontSizeBase = 16;
 export const fontSize = {
   normal: 1,
   medium: 1,
@@ -59,8 +60,8 @@ export const fontSize = {
   larger: 2.618,
   xl:     4.236,
   xxl:    6.854,
-  small:  0.75,
-  xs:     0.56
+  small:  0.875,
+  xs:     0.75
 }
 
 const zIndex = [
@@ -115,11 +116,37 @@ const Card = {
   flexDirection: 'column'
 };
 
+const Button = {
+  display:       'inline-block',
+  fontWeight:    'normal',
+  lineHeight:    '1.25',
+  textAlign:     'center',
+  verticalAlign: 'middle',
+  border:        '1px solid transparent',
+  padding:       '.5rem 1rem',
+  margin:        '1rem',
+  fontSize:      '1rem',
+  boxShaddow:    '0px 5px 11px 0px rgba(0,0,0,.18)',
+}
+
+export const PageHeader = {
+  display:           'flex',
+  flexWrap:          'wrap',
+  alignItems:        'center',
+  paddingTop:        scale[2],
+  paddingBottom:     scale[2],
+  marginTop:         scale[0],
+  marginBottom:      scale[2],
+  paddingLeft:       scale[2],
+  borderBottomWidth: 2,
+  borderBottomStyle: 'solid',
+  borderColor:       borderColor
+}
+
 export default {
   Card,
   Icon,
   Input,
-
   bold,
   borderColor,
   borderRadius,
@@ -132,4 +159,6 @@ export default {
   scale,
   pureRender: true,
   zIndex,
+  Button,
+  PageHeader
 }
