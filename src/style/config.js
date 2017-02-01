@@ -3,14 +3,14 @@ const monospace = '"Roboto Mono", Menlo, Consolas, monospace'
 const baseColors = {
   white:        '#fff',
   black:        '#000',
-  red:          '#d9534f',
-  orange:       '#f0ad4e',
-  yellow:       '#ffd500',
-  green:        '#5cb85c',
-  blue:         '#0275d8',
-  teal:         '#5bc0de',
-  pink:         '#ff5b77',
-  purple:       '#552448',
+  red:          '#FF4136',
+  orange:       '#FF851B',
+  yellow:       '#FFDC00',
+  green:        '#2ECC40',
+  blue:         '#0074D9',
+  teal:         '#39CCCC',
+  pink:         '#F012BE',
+  purple:       '#B10DC9',
   grayDark:     '#292b2c',
   gray:         '#464a4c',
   grayLight:    '#636c72',
@@ -21,7 +21,7 @@ const baseColors = {
 export const colors = {
   ...baseColors,
   primary:            baseColors.blue,
-  secondary:          baseColors.midgray,
+  secondary:          baseColors.grayLight,
   default:            baseColors.black,
   info:               baseColors.teal,
   success:            baseColors.green,
@@ -44,10 +44,10 @@ export const scale = [
 ]
 
 const fontSizes = [
-  109,
-  68,
-  42,
-  26,
+  16,
+  32,
+  24,
+  20,
   16,
   14,
   12
@@ -55,9 +55,9 @@ const fontSizes = [
 
 export const fontSize = {
   normal: 1,
-  medium: 1,
-  large:  1.618,
-  larger: 2.618,
+  medium: 1.25,
+  large:  1.5,
+  larger: 2,
   xl:     4.236,
   xxl:    6.854,
   small:  0.875,
@@ -129,19 +129,6 @@ const Button = {
   boxShaddow:    '0px 5px 11px 0px rgba(0,0,0,.18)',
 }
 
-export const PageHeader = {
-  display:           'flex',
-  flexWrap:          'wrap',
-  alignItems:        'center',
-  paddingTop:        scale[2],
-  paddingBottom:     scale[2],
-  marginTop:         scale[0],
-  marginBottom:      scale[2],
-  paddingLeft:       scale[2],
-  borderBottomWidth: 2,
-  borderBottomStyle: 'solid',
-  borderColor:       borderColor
-}
 
 export default {
   Card,
@@ -159,6 +146,5 @@ export default {
   scale,
   pureRender: true,
   zIndex,
-  Button,
-  PageHeader
+  Button
 }

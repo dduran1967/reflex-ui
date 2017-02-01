@@ -4,12 +4,16 @@ import store from './store';
 import DevTools from 'mobx-react-devtools';
 import Match from 'react-router/Match';
 import {HomeView, MessagesView, MessageView, ConnectView} from './view';
-import {Icon} from './components';
+import {Icon, PageHeader} from './components';
 import Sidebar from './view/sidebar.view';
 import styleConfig from './style/config';
 import './style/index.css';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleNav = this.toggleNav.bind(this);
+  }
 
   static childContextTypes = {
     rebass: React.PropTypes.object
@@ -22,31 +26,23 @@ class App extends React.Component {
   }
 
   toggleNav() {
-    store.ui.drawerOpen = !store.ui.drawerOpen;
+    store.ui.sidebar.open = !store.ui.sidebar.open;
   }
 
   render() {
     return (
       <div>
-        <a
-          href="#"
-          style={{
-            position: 'absolute',
-            top:      '16px',
-            left:     '16px',
-            zIndex:   '1080',
-            backgroundColor: 'transparent',
-            color: 'white'
-          }}
-          onClick={this.toggleNav}
-        >
-          <Icon name="menu"/>
-        </a>
         <div className="d-flex flex-row">
-          <Sidebar/>
+          <Sidebar open={store.ui.sidebar.open} toggleSidebar={store.ui.toggleSidebar}/>
           <div id="contentWrapper" className="w-100">
-            <main id="mainContent">
-              <Match exactly pattern="/" component={HomeView}/>
+            <PageHeader>
+              {!store.ui.sidebar.open &&
+              <a href="#" onClick={this.toggleNav}><Icon name="menu" style={{marginRight: '1em'}} /></a>
+              }
+              <div className="title">{store.ui.page.title}</div>
+            </PageHeader>
+            <main id="mainContent" style={{padding: '0 1em'}}>
+              <Match exactly pattern="/" render={() => <HomeView {...this.props} />}/>
               <Match exactly pattern="/messages" component={MessagesView}/>
               <Match exactly pattern="/messages/:messageId" component={MessageView}/>
               <Match exactly pattern="/connect" component={ConnectView}/>

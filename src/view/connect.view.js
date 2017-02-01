@@ -2,7 +2,7 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import clients from '../store/client';
 //import uiStore from '../store/ui';
-import {PageHeader, ClientCard, CardList, CardListItem} from '../components';
+import {ClientCard, CardList, CardListItem} from '../components';
 
 class ConnectView extends React.Component {
   render() {
@@ -16,7 +16,6 @@ class ConnectView extends React.Component {
       );
     return (
       <div>
-        <PageHeader heading={'Connect'}/>
         <CardList>
           {listItems}
         </CardList>

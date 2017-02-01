@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import {colors} from '../style/config';
 
+
+//background-color: #fff;
+//border: solid 1px transparent;
+
 const Button = styled.button`
     position: relative;
-    background-color: #fff;
-    border: solid 1px transparent;
     display: inline-block;
     font-weight: normal;
     font-size: 1rem;

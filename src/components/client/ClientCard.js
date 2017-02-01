@@ -1,12 +1,12 @@
 import React from 'react';
-import {Card, Avatar, Icon} from '../index';
+import {Card, Avatar} from '../index';
 
 const ClientCard = ({client, ...props}) => {
   let {name, description, avatar, icon, image, producesMessage, consumesMessage} = client || {...props};
   let avatarInstance = <Avatar src={avatar || icon || image} name={name}/>
   let messages = [].concat(producesMessage, consumesMessage);
   let footer = (
-    <div style={{lineHeight: '24px', verticalAlign: 'middle'}}><Icon name="grade"/>{messages.length}</div>
+    <div style={{lineHeight: '24px', verticalAlign: 'middle'}}>{messages.length}</div>
   )
   return (
     <Card

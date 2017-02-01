@@ -1,7 +1,6 @@
 export {
   Block,
   Input,
-  PageHeader,
   Section,
   SectionHeader,
   Stat,
@@ -26,12 +25,13 @@ export {default as ClientView} from './client/ClientView'
 export {default as ClientDiscover} from './client/ClientDiscover'
 export {default as Drawer, DrawerHeader} from './Drawer'
 export {default as Hero} from './Hero'
-export {default as Icon} from './Icon'
+export {default as Icon} from './SvgIcon'
 export {default as Layout, Container, Row, Column} from './Layout'
 export {default as Title} from './Title'
 export {default as Toolbar, ToolbarItem} from './Toolbar'
 export {ListGroup, ListGroupItemAction} from './ListGroup'
 export {default as Message, MessageList, MessageListItem} from './Message'
+export {default as PageHeader} from './PageHeader'
 export {default as Splash} from './Splash'
 export {default as Signup} from './Signup'
 export {default as CardList, CardListItem} from './card/CardList'
