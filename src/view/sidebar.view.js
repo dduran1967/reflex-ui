@@ -11,7 +11,7 @@ function Sidebar() {
       </DrawerHeader>
       <Nav stacked style={{color:'white'}}>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/browse">Connect</NavLink>
+        <NavLink to="/connect">Connect</NavLink>
         <NavLink to="/messages">Messages</NavLink>
       </Nav>
     </Drawer>

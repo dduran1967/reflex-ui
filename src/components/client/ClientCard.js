@@ -2,8 +2,8 @@ import React from 'react';
 import {Card, Avatar, Icon} from '../index';
 
 const ClientCard = ({client, ...props}) => {
-  let {name, description, icon, image, producesMessage, consumesMessage} = client || {...props};
-  let avatar = <Avatar src={icon || image} name={name}/>
+  let {name, description, avatar, icon, image, producesMessage, consumesMessage} = client || {...props};
+  let avatarInstance = <Avatar src={avatar || icon || image} name={name}/>
   let messages = [].concat(producesMessage, consumesMessage);
   let footer = (
     <div style={{lineHeight: '24px', verticalAlign: 'middle'}}><Icon name="grade"/>{messages.length}</div>
@@ -12,12 +12,13 @@ const ClientCard = ({client, ...props}) => {
     <Card
       title={name}
       text={description}
-      avatar={avatar}
+      avatar={avatarInstance}
       footer={footer}
       {...props}
     />
   )
 };
+
 ClientCard.propTypes = {
   backgroundColor: React.PropTypes.string,
   color:           React.PropTypes.string,

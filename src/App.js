@@ -3,7 +3,7 @@ import {observer} from 'mobx-react';
 import store from './store';
 import DevTools from 'mobx-react-devtools';
 import Match from 'react-router/Match';
-import {HomeView, MessagesView, MessageView} from './view';
+import {HomeView, MessagesView, MessageView, ConnectView} from './view';
 import {Icon} from './components';
 import Sidebar from './view/sidebar.view';
 import styleConfig from './style/config';
@@ -49,6 +49,7 @@ class App extends React.Component {
               <Match exactly pattern="/" component={HomeView}/>
               <Match exactly pattern="/messages" component={MessagesView}/>
               <Match exactly pattern="/messages/:messageId" component={MessageView}/>
+              <Match exactly pattern="/connect" component={ConnectView}/>
               {/*<Match exactly pattern={"/client/:clientId"} component={ClientView}/>*/}
             </main>
           </div>

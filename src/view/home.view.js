@@ -1,11 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {Hero, Container, CardListItem, CardList, Button} from '../components';
-import ClientCard from '../components/client/ClientCard';
+import {PageHeader, Button, CardListItem, ClientCard} from '../components';
 import {observer} from 'mobx-react';
 
 class Home extends React.Component {
-
   renderClients(clientList) {
     return clientList.map(client => {
       let action = (
@@ -25,11 +23,9 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Hero title="browse"/>
-        <Container>
-          <CardList>
-          </CardList>
-        </Container>
+        <PageHeader heading={'reflex:Connect'}>
+
+        </PageHeader>
       </div>
     )
   }

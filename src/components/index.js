@@ -34,7 +34,7 @@ export {ListGroup, ListGroupItemAction} from './ListGroup'
 export {default as Message, MessageList, MessageListItem} from './Message'
 export {default as Splash} from './Splash'
 export {default as Signup} from './Signup'
-export {CardList, CardListItem} from './card/CardList'
+export {default as CardList, CardListItem} from './card/CardList'
 export {default as Button} from './Button';
 export {default as Link} from './Link';
 export {default as Nav, NavLink} from './Nav';
