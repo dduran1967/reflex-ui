@@ -6,7 +6,7 @@ import {observer} from 'mobx-react';
 class Home extends React.Component {
 
   componentWillMount() {
-    this.props.pageTitle = 'Home'
+    console.log(this.props)
   }
 
   renderClients(clientList) {
@@ -28,7 +28,12 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>home view</h1>
+        <h3>what to put on this page?</h3>
+        <ul>
+          <li>dashboard</li>
+          <li>notifications</li>
+          <li>social/business feed</li>
+        </ul>
       </div>
     )
   }

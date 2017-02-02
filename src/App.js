@@ -30,16 +30,18 @@ class App extends React.Component {
   }
 
   render() {
+    const {ui} = this.props.store;
+
     return (
       <div>
         <div className="d-flex flex-row">
-          <Sidebar open={store.ui.sidebar.open} toggleSidebar={store.ui.toggleSidebar}/>
+          <Sidebar open={ui.sidebar.open} toggleSidebar={ui.toggleSidebar} onNav={ui.setPageTitle}/>
           <div id="contentWrapper" className="w-100">
             <PageHeader>
-              {!store.ui.sidebar.open &&
-              <a href="#" onClick={this.toggleNav}><Icon name="menu" style={{marginRight: '1em'}} /></a>
+              {!ui.sidebar.open &&
+              <a href="#" onClick={this.toggleNav}><Icon name="menu" style={{marginRight: '1em'}}/></a>
               }
-              <div className="title">{store.ui.page.title}</div>
+              <div className="title">{ui.pageTitle}</div>
             </PageHeader>
             <main id="mainContent" style={{padding: '0 1em'}}>
               <Match exactly pattern="/" render={() => <HomeView {...this.props} />}/>

@@ -6,13 +6,20 @@ class UIState {
       sidebar:       {
         open: true
       },
-      page:          {
-        title: 'reflex:Connect'
-      },
+      routes: [
+        {
+
+        }
+      ],
       currentUserId: '',
       currentUser:   {},
       currentClient: {},
+      pageTitle: 'Home',
     })
+  }
+
+  @action.bound setPageTitle(value) {
+    this.pageTitle = value;
   }
 
   @action.bound toggleSidebar() {

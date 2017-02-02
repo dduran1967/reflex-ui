@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Link from './Link';
-import {Block} from '../components';
 
 export const Nav = styled.nav`
   margin: 0;
