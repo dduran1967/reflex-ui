@@ -6,25 +6,24 @@ class UIState {
       sidebar:       {
         open: true
       },
-      routes: [
-        {
-
-        }
+      routes:        [
+        {}
       ],
       currentUserId: '',
       currentUser:   {},
       currentClient: {},
-      pageTitle: 'Home',
+      pageTitle:     'Home',
     })
   }
 
-  @action.bound setPageTitle(value) {
+  setPageTitle = action((value) => {
     this.pageTitle = value;
-  }
+  })
 
-  @action.bound toggleSidebar() {
+  toggleSidebar = action(() => {
     this.sidebar.open = !this.sidebar.open;
-  }
+  })
+
 }
 
 const ui = window.ui = new UIState();

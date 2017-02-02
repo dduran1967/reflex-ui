@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'react-router/Link';
 import {observer} from 'mobx-react';
-import {ListGroup, ListGroupItemAction, MessageListItem, PageHeader} from '../components';
+import {ListGroup, ListGroupItemAction, MessageListItem} from '../components';
 import messages from '../store/message';
 
 class MessagesView extends React.Component {
@@ -21,7 +21,6 @@ class MessagesView extends React.Component {
     });
     return(
       <div>
-        <PageHeader heading={'Messages'} />
         <div>
           <ListGroup>
             {items}

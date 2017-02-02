@@ -14,10 +14,9 @@ import {
   Switch,
   Avatar,
   Flex,
-  Box
+  Box,
+  PageHeader
 } from '../src/components';
-import {PageHeader} from 'rebass';
-
 import state from './storydata';
 import '../src/style/index.css';
 import './stories.css';

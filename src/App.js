@@ -3,7 +3,7 @@ import {observer} from 'mobx-react';
 import store from './store';
 import DevTools from 'mobx-react-devtools';
 import Match from 'react-router/Match';
-import {HomeView, MessagesView, MessageView, ConnectView} from './view';
+import {HomeView, MessagesView, MessageView, ConnectView, ConnectClientView} from './view';
 import {Icon, PageHeader} from './components';
 import Sidebar from './view/sidebar.view';
 import styleConfig from './style/config';
@@ -31,7 +31,6 @@ class App extends React.Component {
 
   render() {
     const {ui} = this.props.store;
-
     return (
       <div>
         <div className="d-flex flex-row">
@@ -45,10 +44,28 @@ class App extends React.Component {
             </PageHeader>
             <main id="mainContent" style={{padding: '0 1em'}}>
               <Match exactly pattern="/" render={() => <HomeView {...this.props} />}/>
-              <Match exactly pattern="/messages" component={MessagesView}/>
-              <Match exactly pattern="/messages/:messageId" component={MessageView}/>
-              <Match exactly pattern="/connect" component={ConnectView}/>
-              {/*<Match exactly pattern={"/client/:clientId"} component={ClientView}/>*/}
+              <Match exactly pattern="/events" component={MessagesView}/>
+              <Match exactly pattern="/messages/:messageId"
+                     render={({params}) => {
+                       let messageId = params.messageId;
+                       store.message.viewMessage(messageId);
+                       ui.pageTitle = store.message.currentMessage.name;
+                       return <MessageView message={store.message.currentMessage}/>
+                     }}
+              />
+              <Match exactly pattern="/connect"
+                     render={() => <ConnectView clients={store.client}/>}
+              />
+              <Match exactly pattern={"/connect/:clientId"}
+                     render={({params}) => {
+                       return (
+                         <ConnectClientView
+                           controller={this.props.store.client}
+                           clientId={params.clientId}
+                         />
+                       )
+                     }}
+              />
             </main>
           </div>
         </div>

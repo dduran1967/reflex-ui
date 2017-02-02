@@ -22,9 +22,9 @@ function Sidebar({open, toggleSidebar, onNav}) {
           <Icon name="connect" style={{marginRight: '1em'}}/>
           Connect
         </NavLink>
-        <NavLink to="/messages" onClick={onNav.bind(this, 'History')}>
+        <NavLink to="/events" onClick={onNav.bind(this, 'Events')}>
           <Icon name="history" viewBox="0 0 26 24" style={{marginRight: '1em'}}/>
-          History
+          Events
         </NavLink>
       </Nav>
     </Drawer>

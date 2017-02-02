@@ -5,6 +5,6 @@ import Router from 'react-router/BrowserRouter';
 import store from './store'
 
 ReactDOM.render(
-  <Router><App store={store} /></Router>,
+  <Router><App store={store} {...this} /></Router>,
   document.getElementById('root')
 );
